@@ -1,0 +1,606 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郭睿</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- GSAP 动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold text-gray-900" style="font-size: 18px;">Nicole 持续建设中……</a>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-gray-500 hover:text-gray-900 focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+                
+                <!-- 桌面端导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">首页</a>
+                    <a href="#works" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">作品展示</a>
+                    <a href="#education" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">教育经历</a>
+                    <a href="#internship" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">实习经历</a>
+                    <a href="#about" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">关于我</a>
+                    <a href="#contact" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">联系方式</a>
+                </nav>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">首页</a>
+                <a href="#works" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">作品展示</a>
+                <a href="#education" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">教育经历</a>
+                <a href="#internship" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">实习经历</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">关于我</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">联系方式</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="min-h-screen flex items-center pt-16 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- 左侧个人信息区域 -->
+                <div class="w-full md:w-3/5 flex flex-col items-center md:items-start justify-center md:ml-10">
+                    <!-- 个人照片 -->
+                    <div class="w-80 h-80 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg">
+                        <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/54b2cf13079b4f9983b94b0565eb17d8~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202604261135569E10796CEC60199F00C1&amp;rrcfp=03245832&amp;x-expires=1777779360&amp;x-signature=0s%2B4V93ULheaVMsA7IyQWlgLBIQ%3D" alt="Nicole Guo 郭睿" class="w-full h-full object-cover" style="border-radius: 0px;">
+                    </div>
+                    <!-- 个人信息文本 -->
+                    <div class="flex flex-col items-center justify-center h-full">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0" id="hero-title" style="font-size: 48px;">Nicole Guo 郭睿</h1>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">金融本硕</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">23岁</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">ISTJ</span>
+                        <p class="text-lg font-bold text-pink-500 opacity-0" id="hero-status" style="font-size: 20px; color: rgb(181, 181, 181);">持续建设中💪</p>
+                    </div>
+                </div>
+                
+                <!-- 右侧便利贴区域 -->
+                <div class="w-full md:w-[65%] flex items-center justify-center">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-md opacity-0" id="sticky-note" style="font-family: 'Caveat', 'Kalam', 'Handlee', cursive;">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Welcome to my channel ! 🎊</h3>
+                        <p class="text-gray-700 mb-4" style="font-size: 20px;"> Hi, I'm Nicole 🙌 </p>
+                        <p class="text-gray-700 mb-4">
+                            作为一名应届毕业生，我希望通过这个个人主页展示我的专业能力、成果和过往经历，为求职之路增添一份助力。
+                        在这里，你可以了解我的教育背景、实习经历、项目作品以及专业技能，全方位地认识我。
+                        </p>
+                        <p class="text-gray-700 mb-6">
+                            我相信，每一次真诚的交流都能让世界变得更温暖、更广阔。期待与你相遇！
+                        </p>
+                        <!-- 按钮区域 -->
+                        <div class="flex flex-col gap-4">
+                            <a href="#works" class="bg-yellow-50 hover:bg-yellow-200 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                                Enter
+                            </a>
+                            <a href="#" id="download-resume" class="bg-yellow-50 hover:bg-yellow-200 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center flex items-center justify-center">
+                                <i class="fa fa-download mr-2"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section id="works" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 section-title">作品展示</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto section-subtitle">
+                    精选项目展示，涵盖硕士期间于上海财经大学数字经济研究院课题组参与的课题组项目、毕业论文展示以及闲暇时间自己捣鼓的数据分析小项目。
+                </p>
+            </div>
+            
+            <!-- 作品分类筛选 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 filter-buttons">
+                <button class="px-6 py-2 rounded-full bg-gray-900 text-white filter-btn active" data-filter="all">
+                    全部
+                </button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 filter-btn" data-filter="school">
+                    科研项目
+                </button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 filter-btn" data-filter="essay">
+                    毕业论文
+                </button>
+                <button class="px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 filter-btn" data-filter="BA">
+                    数据分析小项目
+                </button>
+            </div>
+            
+            <!-- 作品网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 works-grid">
+                <!-- 作品项 1 -->
+                <div class="work-item school group" data-category="school">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="电商网站重设计" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 lazy-image">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                <div class="p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-blue-500 text-xs rounded-full mb-2">科研项目</span>
+                                    <h3 class="text-xl font-bold">人才引力指数</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">长三角中心区城市数字人才引力指数报告</h3>
+                            <p class="text-gray-600 mb-4">构建综合数字人才引力打分模型，多维度分析产出长三角中心区城市对数字人才吸引力的排名榜单。</p>
+                            <button class="view-details text-gray-900 font-medium hover:text-blue-600 transition-colors flex items-center" data-id="1">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+              <!-- 作品项 2 -->
+                <div class="work-item school group" data-category="school">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="健康追踪应用" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 lazy-image">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                <div class="p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-blue-500 text-xs rounded-full mb-2">科研项目</span>
+                                    <h3 class="text-xl font-bold">外卖市场调研</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">外卖平台在沪面向商家收费情况调研项目</h3>
+                            <p class="text-gray-600 mb-4">对上海市47家外卖平台商户进行访谈，挖掘佣金压力、营销活动参与度及平台服务痛点。</p>
+                            <button class="view-details text-gray-900 font-medium hover:text-blue-600 transition-colors flex items-center" data-id="2">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- 作品项 2 -->
+                <div class="work-item essay group" data-category="essay">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="健康追踪应用" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 lazy-image">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                <div class="p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-purple-500 text-xs rounded-full mb-2">毕业论文</span>
+                                    <h3 class="text-xl font-bold">硕士学位毕业论文</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">基于文本情感分析的投资者情绪对股价预测的研究——以北证50为例</h3>
+                            <p class="text-gray-600 mb-4">硕士学位毕业论文</p>
+                            <button class="view-details text-gray-900 font-medium hover:text-blue-600 transition-colors flex items-center" data-id="2">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 作品项 6 -->
+                <div class="work-item BA group" data-category="BA">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="音乐流媒体平台" class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 lazy-image">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                <div class="p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-pink-500 text-xs rounded-full mb-2">数据分析小项目</span>
+                                    <h3 class="text-xl font-bold">拼多多用户购物分析</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">MySQL+Tableau 拼多多用户购物分析</h3>
+                            <p class="text-gray-600 mb-4">使用MySQL 处理客户购物数据，再通过 Tableau 可视化呈现。从用户画像、商品偏好、购买行为到忠诚度分层，全面剖析客户特征，识别高价值用户，为营销策略提供数据支持</p>
+                            <button class="view-details text-gray-900 font-medium hover:text-blue-600 transition-colors flex items-center" data-id="6">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育经历区 -->
+    <section id="education" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 section-title">教育经历</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto section-subtitle">
+                    我的教育经历
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <!-- 教育项 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 education-item">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
+                                    <i class="fa fa-university text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">上海财经大学   
+                                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs align-middle inline-flex items-center">硕士</span>
+                                </h4>
+                                <p class="text-gray-600 mb-1">金融学(数字经济方向)</p>
+                                <p class="text-gray-500 text-sm">2024年9月 - 2026年7月</p>
+                                <p class="mt-3 text-gray-600">主修课程：Python编程及应用(94)、金融大数据(90)、数据安全(91)、高级计量经济学(92)、数字经济前沿问题研究(90)、机器学习</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">GPA 3.76/4.0</span>
+                                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs">2024-2025学年研究生学业奖学金 | 数字经济学院2024-2025学年专业硕士研究生特色奖学金 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      </div>
+                    
+                    <!-- 教育项 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 education-item">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
+                                    <i class="fa fa-university text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">江西财经大学   
+                                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs align-middle inline-flex items-center">本科</span>
+                                </h4>
+                                <p class="text-gray-600 mb-1">金融学(CFA方向)</p>
+                                <p class="text-gray-500 text-sm">2020年9月 - 2024年7月</p>
+                                <p class="mt-3 text-gray-600">
+                                    主修课程：期货投资学(95)、公司金融(94)、金融大数据分析(91)、⾦融市场与机构⻛险管理(90)、投资中的定量方法及应用(96)、财务报表分析(92)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div></div></section>
+
+    <!-- 实习经历区 -->
+    <section id="internship" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 section-title">实习经历</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto section-subtitle">
+                    我的实践经验和专业成长
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <!-- 实习项 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                                <i class="fa fa-code text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">用户数字产品-经营分析实习生
+                                <span class="px-3 py-1 bg-green-50 text-xl font-bold text-green-700 rounded-full text-l">蔚来</span></h4>
+                                <p class="text-gray-500 text-sm">2025年12月 - 2026年4月</p>
+                                <p class="mt-3 text-gray-600">1. 数据流程自动化：主导“月度经营账单流程自动化”项目，从表单设计→数据收集→飞书卡片搭建→自动生成/推送/确认→数据回流→可视化看板分析闭环，实现账单自动生成率100%，将月度出账效率提升约90%，基本消除人工操作，并通过撰写SOP固化优化流程。</p>
+                                <p class="mt-3 text-gray-600">2. 跨部门协同与项目管理：对接业务方，协同数据产品、开发、项目经理等多角色，通过阿基米德平台配置自动化流程，完成数据方案设计、中间表维护、建模开发、看板配置，推动项目按时上线，保障账单全流程数据无缝对接。</p>
+                                <p class="mt-3 text-gray-600">3. 数据报表分析与决策支持：运用Excel（VLOOKUP、INDEX+MATCH、数据透视表等）与公司数据平台，完成数据提取、清洗与分析，输出经营分析报告，为业务决策提供数据依据。</p>
+                              <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs">SQL</span>
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs">Excel</span>
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs">看板搭建</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 实习项 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                                <i class="fa fa-code text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">市场部-品牌策划&amp;内容运营实习生   
+                                <span class="px-3 py-1 bg-green-50 text-xl font-bold text-green-700 rounded-full text-l">CoinEx</span></h4>
+                                <p class="text-gray-500 text-sm">2024年6月 - 2024年10月</p>
+                                <p class="mt-3 text-gray-600">1. 内容管理：博客文章上传与审核，优化内容格式和 SEO 问题（如失效链接、网站爬虫问题），制作博客封面图（Midjourney、Figma）。</p>
+                                <p class="mt-3 text-gray-600">2. 项目统筹：协助统筹站内周年庆等4项专项活动，负责全流程管理（需求-方案-预算-协调-上线-复盘），协调项目进展并确保节点完成。</p>
+                                <p class="mt-3 text-gray-600">3. 跨团队协同：高效对接设计与翻译等团队，推动多语种营销物料按时交付，保障多项活动顺利落地。</p>
+                                <p class="mt-3 text-gray-600">4. 数据监控与策略优化：建立全球8+语区社交媒体宣传数据监控体系，通过多维度数据分析追踪核心指标，定期输出复盘报告并提出内容策略优化建议，驱动后续活动整体曝光量提升超10%。</p>
+                                <p class="mt-3 text-gray-600">5. 竞品分析：系统追踪行业竞品市场动态与运营策略，通过数据整理与对比分析，输出竞品分析报告，为团队运营优化与决策提供数据支持。</p>
+                             
+                            </div>
+                        </div>
+                    </div>
+                  <!-- 实习项 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                                <i class="fa fa-code text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">医疗投资分析实习生
+                                <span class="px-3 py-1 bg-green-50 text-xl font-bold text-green-700 rounded-full text-l">上海旭医信息科技有限公司</span></h4>
+                                <p class="text-gray-500 text-sm">2024年12月 - 2025年3月</p>
+                                <p class="mt-3 text-gray-600">1. 商业计划书优化与项目支持：协助优化3个项目的路演商业计划书，通过数据可视化与结构化表达提升方案说服力；参与20余场项目访谈与路演，输出会议纪要与关键结论，支持内部投资决策流程。</p>
+                                <p class="mt-3 text-gray-600">2. 市场分析：独立负责口腔、手术机器人等垂直赛道深度研究，进行定量行业研究以及定量项目打分，为业务决策提供核心洞察。</p>
+                                <p class="mt-3 text-gray-600">3. 投资研究与商务拓展：通过案头研究、专家访谈等方式，对潜在投资方向进行学术、产业和案例研究，协助信息收集及 BD 工作。</p>
+                                <p class="mt-3 text-gray-600">4. 内容运营与数据监控：建立行业投融资数据追踪体系，通过数据分析识别趋势与机会点，并撰写5篇深度分析推文，提升信息传播与影响力。</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 实习项 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                                <i class="fa fa-paint-brush text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-900">研究助理
+                                <span class="px-3 py-1 bg-green-50 text-xl font-bold text-green-700 rounded-full text-l">上海财经大学数字经济研究院</span></h4>
+                                <p class="text-gray-500 text-sm">2025年4月 - 2025年9月</p>
+                                <p class="mt-3 text-gray-600">1. 课题研究：作为核心成员，参与4项从立项到结项的全周期研究课题，独立撰写研究计划书，为项目顺利推进奠定基础。</p>
+                                <p class="mt-3 text-gray-600">2. 数据分析：主导设计并执行超2000份样本的大规模市场调研，运用问卷星等工具进行数据收集与清洗，通过Python进行描述性统计与交叉分析，深度挖掘用户行为与痛点，形成核心结论为优化提供方向。</p>
+                                <p class="mt-3 text-gray-600">3. 报告编撰：参与《行业研究》教材及与某知名外卖平台合作《上海市“放心外卖”食品安全白皮书》的编撰工作。</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 section-title">About Me</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto section-subtitle">
+                    1%的我
+                </p>
+            </div>
+
+          <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+<div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="ml-4">
+                              <h3 class="text-2xl font-bold text-gray-900 mb-6">About Nicole</h3>
+                              <p class="text-gray-600 mb-4">本人具备扎实的英语能力（CET6，IELTS6.5）与专业资质（通过FRM一级）。掌握Python、C++等编程语言、SQL数据分析技能及TensorFlow机器学习框架，能高效进行数据提取、清洗与可视化，善于运用统计学方法挖掘业务洞察，致力于运用各类AI工具提升工作效率。在实践方面，我积累了跨本地生活服务平台、Web3.0、金融科技、医疗等领域的项目经验，能够快速理解业务逻辑，并通过数据分析和协作推动问题解决。</p>
+                        <p class="text-gray-600 mb-4">我的优势在于：</p>
+                        <p class="text-gray-600">1）具备优秀的快速学习、抗压以及多任务处理能力；</p>
+                        <p class="text-gray-600">2）具备扎实的统计基础与逻辑能力，对数据高度敏感，能够从复杂信息中提炼洞察，支持业务决策；</p>
+                        <p class="text-gray-600 mb-4">3）具备跨部门协作经验，具备与产品、技术、运营等多角色协同推进项目的实践经验，注重沟通效率与结果落地。</p>
+                        <p class="text-gray-600 mb-4">业余时间热爱羽毛球竞技、骑行、游泳、网球、阅读，这些经历培养了我的团队协作精神和坚韧心态。我对互联网行业充满热情，期待能将扎实的技能、持续的学习热情与实战经验带入贵司岗位，为团队带来实际价值。</p><p></p>
+                      <div class="mt-4">
+                            <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                <span>下载简历</span>
+                                <i class="fa fa-download ml-2"></i>
+                            </a>
+                        </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+<div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 experience-item">
+                        <div class="flex items-start">
+                            <div class="ml-10">
+                             
+<h3 class="text-2xl font-bold text-gray-900 mb-6">技能</h3>
+                        
+                        <!-- 技能分类 -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">编程技能</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-yellow-200 text-yellow-700 rounded-full">Python</span>
+                                <span class="px-3 py-1 bg-yellow-200 text-yellow-700 rounded-full">C++</span>
+                                <span class="px-3 py-1 bg-yellow-200 text-yellow-700 rounded-full">SQL</span>
+                                <span class="px-3 py-1 bg-yellow-200 text-yellow-700 rounded-full">Tableau</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">兴趣爱好</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full">羽毛球</span>
+                                <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full">跑步</span>
+                                <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full">游泳</span>
+                                <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full">网球</span>
+                                <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full">Vibe Coding</span>
+                            </div>
+                        </div>
+
+                              
+                              
+                            </div>
+                        </div>
+                    </div>
+
+
+
+    </div></div></div></section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 section-title">联系方式</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto section-subtitle">
+                    如果您对我的作品、经历感兴趣，或者有任何问题，欢迎通过下面任何一种方式联系我。<br><span class="golden-text" data-text="Every sincere conversation makes the world warmer and broader.">Every sincere conversation makes the world warmer and broader.</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">联系信息</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500">
+                                <i class="fa fa-envelope text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-gray-900">邮箱</h4>
+                                <p class="text-gray-600">ruiguo20020724@163.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500">
+                                <i class="fa fa-phone text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-gray-900">电话</h4>
+                                <p class="text-gray-600">+86 17807555788</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500">
+                                <i class="fa fa-map-marker text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-gray-900">地址</h4>
+                                <p class="text-gray-600">上海市杨浦区五角场街道</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">社交媒体</h4>
+                        <div class="flex space-x-4">
+                            <div class="relative">
+                                <a href="#" class="h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center text-gray-600 hover:bg-green-100 hover:text-green-600 transition-colors social-icon" data-platform="wechat" data-info="WeChat: zombierayyy">
+                                    <i class="fa fa-weixin"></i>
+                                </a>
+                                <div class="social-tooltip hidden absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10">
+                                    WeChat: zombierayyy
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <a href="#" class="h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors social-icon" data-platform="qq" data-info="QQ: 609881602">
+                                    <i class="fa fa-qq"></i>
+                                </a>
+                                <div class="social-tooltip hidden absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10">
+                                    QQ: 609881602
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">发送消息</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的姓名" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的邮箱" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入消息主题" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">消息</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的消息" required=""></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                发送消息
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">郭睿</h2>
+                    <p class="text-gray-400 mt-2">持续建设中💪</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <div class="relative">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors social-icon" data-platform="wechat" data-info="WeChat: zombierayyy">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <div class="social-tooltip hidden absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10">
+                            WeChat: zombierayyy
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors social-icon" data-platform="qq" data-info="QQ: 609881602">
+                            <i class="fa fa-qq text-xl"></i>
+                        </a>
+                        <div class="social-tooltip hidden absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10">
+                            QQ: 609881602
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2026 郭睿. 保留所有权利.</p>
+                
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">隐私政策</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">使用条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 作品详情模态框 -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-900"></h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <i class="fa fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 动态内容将通过JavaScript填充 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body></html>
